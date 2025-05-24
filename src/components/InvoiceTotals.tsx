@@ -7,6 +7,16 @@ interface InvoiceTotalsProps {
   total: number;
 }
 
+function formatWithSup(value: number | string) {
+  const [intPart, decPart] = Number(value).toFixed(2).split('.');
+  return (
+    <>
+      {intPart}
+      <sup className="text-xs">.{decPart}</sup>
+    </>
+  );
+}
+
 const InvoiceTotals: React.FC<InvoiceTotalsProps> = ({
   taxLabel = 'Tax',
   taxAmount = 0,
@@ -23,7 +33,7 @@ const InvoiceTotals: React.FC<InvoiceTotalsProps> = ({
         )}
         <div className="flex justify-between py-3">
           <span className="font-medium text-gray-900">Invoice Total</span>
-          <span className="font-medium text-gray-900">${total.toFixed(2)}<sup className="text-xs">.00</sup></span>
+          <span className="font-medium text-gray-900">${formatWithSup(total)}</span>
         </div>
       </div>
     </div>

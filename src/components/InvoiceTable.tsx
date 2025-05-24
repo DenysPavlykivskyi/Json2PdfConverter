@@ -5,6 +5,16 @@ interface InvoiceTableProps {
   lineItems: InvoiceLineItem[];
 }
 
+function formatWithSup(value: number | string) {
+  const [intPart, decPart] = Number(value).toFixed(2).split('.');
+  return (
+    <>
+      {intPart}
+      <sup className="text-xs">.{decPart}</sup>
+    </>
+  );
+}
+
 const InvoiceTable: React.FC<InvoiceTableProps> = ({ lineItems }) => {
   return (
     <div className="mb-2">
@@ -27,13 +37,13 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({ lineItems }) => {
                 )}
               </td>
               <td className="py-4 text-right text-sm text-gray-900">
-                {item.qtyHours}<sup className="text-xs">.00</sup>
+                {formatWithSup(item.qtyHours)}
               </td>
               <td className="py-4 text-right text-sm text-gray-900">
-                ${item.price}<sup className="text-xs">.00</sup>
+                ${formatWithSup(item.price)}
               </td>
               <td className="py-4 text-right text-sm text-gray-900">
-                ${item.amount}<sup className="text-xs">.00</sup>
+                ${formatWithSup(item.amount)}
               </td>
             </tr>
           ))}

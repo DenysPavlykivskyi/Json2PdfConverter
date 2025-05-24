@@ -13,11 +13,11 @@ const InvoiceMessage: React.FC<InvoiceMessageProps> = ({ message, notes }) => {
       {message && (
         <div>
           <h3 className="text-gray-500 mb-1">Message for the Customer</h3>
-          <p className="text-gray-600"><b>{message}</b></p>
+          <p className="text-gray-600">{message}</p>
         </div>
       )}
       {notes && (
-        <p className="text-gray-600"><b>{notes}</b></p>
+        <p className="text-gray-600">{notes}</p>
       )}
     </div>
   );

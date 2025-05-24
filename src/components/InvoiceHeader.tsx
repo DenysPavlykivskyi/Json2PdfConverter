@@ -10,8 +10,8 @@ interface InvoiceHeaderProps {
 
 const InvoiceHeader: React.FC<InvoiceHeaderProps> = ({ company, details }) => {
   return (
-    <div className="mb-6">
-      <div className="flex justify-between mb-4">
+    <div className="mb-4">
+      <div className="flex justify-between mb-2">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">INVOICE</h1>
         </div>
@@ -19,7 +19,7 @@ const InvoiceHeader: React.FC<InvoiceHeaderProps> = ({ company, details }) => {
       </div>
       <div className="h-px bg-gray-200 w-full mb-4"></div>
 
-      <div className="flex justify-between mb-2">
+      <div className="flex justify-between">
         <div className="flex items-start gap-4">
           <div className="bg-gray-50 p-4 rounded-lg">
             {company.logo ? (
@@ -49,15 +49,15 @@ const InvoiceHeader: React.FC<InvoiceHeaderProps> = ({ company, details }) => {
           <div className="space-y-1 text-sm">
             <div className="grid grid-cols-1">
               <span className="text-gray-500">Invoice Date</span>
-              <span className="text-gray-900"><b>{formatDate(details.invoiceDate)}</b></span>
+              <span className="text-gray-900">{formatDate(details.invoiceDate)}</span>
             </div>
             <div className="grid grid-cols-1">
               <span className="text-gray-500">Due Date</span>
-              <span className="text-gray-900"><b>{formatDate(details.dueDate)}</b></span>
+              <span className="text-gray-900">{formatDate(details.dueDate)}</span>
             </div>
             <div className="grid grid-cols-1">
               <span className="text-gray-500">Payment Terms</span>
-              <span className="text-gray-900"><b>{details.paymentTerms}</b></span>
+              <span className="text-gray-900">{details.paymentTerms}</span>
             </div>
           </div>
         </div>

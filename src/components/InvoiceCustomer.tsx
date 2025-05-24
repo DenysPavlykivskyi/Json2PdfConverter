@@ -7,7 +7,7 @@ interface InvoiceCustomerProps {
 
 const InvoiceCustomer: React.FC<InvoiceCustomerProps> = ({ customer }) => {
   return (
-    <div className="mb-10">
+    <div className="mb-4">
       <h3 className="text-sm text-gray-500 mb-2">Bill to</h3>
       <h2 className="text-lg font-medium text-gray-900 mb-1">{customer.name}</h2>
       <p className="text-sm text-gray-600">

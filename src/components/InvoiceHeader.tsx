@@ -10,60 +10,70 @@ interface InvoiceHeaderProps {
 
 const InvoiceHeader: React.FC<InvoiceHeaderProps> = ({ company, details }) => {
   return (
-    <div className="mb-4">
-      <div className="flex justify-between mb-2">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900">INVOICE</h1>
-        </div>
-        <span className="text-base text-gray-900"><b>{details.invoiceNumber}</b></span>
+    <div className="mb-6 px-6 py-4 font-montserrat">
+      {/* Header */}
+      <div className="flex justify-between items-start mb-3">
+        <h1 className="text-2xl font-bold text-gray-900">INVOICE</h1>
+        <span className="text-base font-semibold text-gray-900">{details.invoiceNumber}</span>
       </div>
-      <div className="h-px bg-gray-200 w-full mb-4"></div>
 
-      <div className="flex justify-between">
-        <div className="flex items-start gap-4">
-          <div className="bg-gray-50 p-4 rounded-lg">
+      <div className="h-px bg-gray-200 mb-5" />
+
+      {/* Company Info */}
+      <div className="flex justify-between gap-6">
+        <div className="flex gap-4">
+          <div className="w-28 h-28 p-4 bg-gray-100 border border-gray-300 rounded-xl flex items-center justify-center">
             {company.logo ? (
-              <img 
-                src={company.logo} 
-                alt={`${company.name} logo`} 
-                className="w-12 h-12 object-contain" 
-              />
+              <img src={company.logo} alt={`${company.name} logo`} className="w-12 h-12 object-contain" />
             ) : (
-              <Store className="w-12 h-12 text-gray-600" />
+              <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24">
+
+                <rect width="24" height="24" rx="4" fill="#f3f4f6" />
+
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path fill="#64748b" d="M18.36 9l.6 3H5.04l.6-3h12.72M20 4H4v2h16V4zm0 3H4l-1 5v2h1v6h10v-6h4v6h2v-6h1v-2l-1-5zM6 18v-4h6v4H6z" />
+              </svg>
+
+
             )}
           </div>
-          <div>
-            <h2 className="text-base fontmedium text-gray-900 mb-2"><b>{company.name}</b></h2>
-            <div className="h-px bg-gray-900 w-full mb-2"></div>
-            <p className="text-sm text-gray-600 mt-1">{company.address}</p>
-            <p className="text-sm text-gray-600 mb-2">
+
+          <div className="font-montserrat">
+            <h2 className="text-lg font-semibold text-gray-900 mb-1">{company.name}</h2>
+            <div className="h-px bg-gray-200 mb-2" />
+            <p className="text-xs text-gray-600">{company.address}</p>
+            <p className="text-xs text-gray-600">
               {company.city}, {company.state} {company.zip} {company.country}
             </p>
+            <br/>
             {company.website && (
-              <p className="text-sm text-gray-600 mb-2">{company.website}</p>
+              <p className="text-xs text-gray-600">{company.website}</p>
             )}
           </div>
+
         </div>
 
-        <div className="text-right">
-          <div className="space-y-1 text-sm">
-            <div className="grid grid-cols-1">
-              <span className="text-gray-500">Invoice Date</span>
-              <span className="text-gray-900">{formatDate(details.invoiceDate)}</span>
-            </div>
-            <div className="grid grid-cols-1">
-              <span className="text-gray-500">Due Date</span>
-              <span className="text-gray-900">{formatDate(details.dueDate)}</span>
-            </div>
-            <div className="grid grid-cols-1">
-              <span className="text-gray-500">Payment Terms</span>
-              <span className="text-gray-900">{details.paymentTerms}</span>
-            </div>
+        {/* Invoice Dates */}
+        <div className="text-right font-montserrat text-sm space-y-2">
+          <div>
+            <p className="text-gray-500 text-xs">Invoice Date</p>
+            <p className="text-gray-900 text-xs">May 14, 2025</p>
+          </div>
+          <div>
+            <p className="text-gray-500 text-xs">Due Date</p>
+            <p className="text-gray-900 text-xs">Jun 13, 2025</p>
+          </div>
+          <div>
+            <p className="text-gray-500 text-xs">Payment Terms</p>
+            <p className="text-gray-900 text-xs">2/10 Net 30</p>
           </div>
         </div>
       </div>
-      <div className="h-px bg-gray-200 w-full"></div>
+
+      <div className="h-px bg-gray-200 mt-6" />
     </div>
+
+
   );
 };
 

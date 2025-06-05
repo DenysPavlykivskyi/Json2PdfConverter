@@ -12,7 +12,7 @@ const sampleInvoice: InvoiceData = {
     state: 'WA',
     zip: '98164',
     country: 'USA',
-    website: 'www.jackfruit.com'
+    website: 'www.jackfruit.com',
   },
   customer: {
     name: 'Maple Syrup Enterprises',
@@ -80,7 +80,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 font-sans">
       <div className="bg-white shadow-sm print:hidden">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">

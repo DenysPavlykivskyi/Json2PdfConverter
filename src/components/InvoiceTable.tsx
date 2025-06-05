@@ -17,7 +17,7 @@ function formatWithSup(value: number | string) {
 
 const InvoiceTable: React.FC<InvoiceTableProps> = ({ lineItems }) => {
   return (
-    <div className="mb-2">
+      <div className="mb-6 px-6 py-4 font-montserrat">
       <table className="w-full">
         <thead>
           <tr className="border-b border-gray-900">

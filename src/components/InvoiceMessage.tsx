@@ -9,7 +9,7 @@ const InvoiceMessage: React.FC<InvoiceMessageProps> = ({ message, notes }) => {
   if (!message && !notes) return null;
   
   return (
-    <div className="space-y-4 text-sm">
+    <div className="space-y-4 text-sm px-6 py-4 font-montserrat">
       {message && (
         <div>
           <h3 className="text-gray-500 mb-1">Message for the Customer</h3>
